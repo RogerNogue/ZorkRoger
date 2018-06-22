@@ -1,11 +1,12 @@
 #pragma once
 #include "inclusions.h"
+#include "Player.h"
 static class Parser
 {
 public:
 	Parser();
 	~Parser();
-	vector<string> Parse(string str);
+	static void Parse(string str, Player* p);
 
 };
 

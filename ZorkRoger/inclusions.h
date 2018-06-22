@@ -19,3 +19,9 @@ enum direction {
 enum actions {
 	LOOK, GO, GRAB, USE, TALK, PUT
 };
+
+struct actionInfo {
+	actions action;
+	string a1;
+	string a2;
+};

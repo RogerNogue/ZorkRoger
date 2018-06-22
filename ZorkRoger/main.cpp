@@ -2,17 +2,18 @@
 //
 //<>
 #include "inclusions.h"
+#include "World.h"
 
 int main()
 {
-	string x;
-
+	World myWorld;
 	//game loop
 	while (1) {
+		
 		string inp;
 		getline(cin, inp); //get the input line
-		
-		
+
+		myWorld.update(inp);
 	}
 }
 
