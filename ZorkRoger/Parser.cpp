@@ -1,5 +1,4 @@
 #include "Parser.h"
-#include <string>
 
 Parser::Parser()
 {
@@ -10,26 +9,60 @@ Parser::~Parser()
 {
 }
 
-vector<string> Parser::Parse(string str)
-{
-	return vector<string>();
-}
-
-
-/*
 template<typename Out>
-void split(const std::string &s, char delim, Out result) {
-	std::stringstream ss(s);
-	std::string item;
-	while (std::getline(ss, item, delim)) {
+void split(const string &s, char delim, Out result) {
+	stringstream ss(s);
+	string item;
+	while (getline(ss, item, delim)) {
 		*(result++) = item;
 	}
 }
-*/
-/*
-vector<string> split(const std::string &s, char delim) {
-	std::vector<std::string> elems;
-	split(s, delim, std::back_inserter(elems));
+
+
+vector<string> split(const string &s, char delim) {
+	vector<string> elems;
+	split(s, delim, back_inserter(elems));
 	return elems;
 }
-*/
+
+
+vector<string> Parser::Parse(string str)
+{
+	vector<string> tokens = split(str, ' '); // split the input into words
+											 //health may be implemented
+	int mida = tokens.size();
+	switch (mida) {
+	case 0:
+		cout << "I beg your pardon ?" << endl;
+		break;
+	case 1:
+		/*
+		switch
+		else {
+			cout << "That's not a verb I recognise." << endl;
+		}
+		*/
+		break;
+	case 2:
+		/*
+		switch
+		else {
+		cout << "That's not a verb I recognise." << endl;
+		}
+		*/
+		break;
+	case 3:
+		/*
+		switch
+		else {
+		cout << "That's not a verb I recognise." << endl;
+		}
+		*/
+		break;
+	default:
+		break;
+
+	}
+	return vector<string>();
+}
+

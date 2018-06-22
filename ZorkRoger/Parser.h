@@ -1,10 +1,5 @@
 #pragma once
-
-#include <string>
-#include <vector>
-#include <stdio.h>
-#include <iostream>
-using namespace std;
+#include "inclusions.h"
 static class Parser
 {
 public:
