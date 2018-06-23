@@ -117,6 +117,7 @@ World::World()
 	NPC* vigilante = &NPC(name, description, vigilantePertenences, graveyardEntrance);
 	elements.push_back(vigilante);
 
+	totalCommands = 0;
 }
 
 
@@ -124,6 +125,35 @@ World::~World()
 {
 }
 
+void World::interpret(action a) {
+	switch (a.a) {
+		case LOOK:
+			player->look();
+			return;
+		case GO:
+			player->go(a);
+			return;
+		case GRAB:
+			player->grab(a);
+			return;
+		case DROP:
+			player->drop(a);
+			return;
+		case USE:
+			player->use(a);
+			return;
+		case TALK:
+			player->talk(a);
+			return;
+		case PUT:
+			player->put(a);
+			return;
+		case ERROR:
+			return;
+	}
+}
+
 void World::update(string inp) {
-	action a = Parser::Parse(inp);
+	interpret(Parser::Parse(inp));
+	totalCommands++;
 }

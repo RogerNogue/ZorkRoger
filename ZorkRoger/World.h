@@ -16,7 +16,9 @@ public:
 	World();
 	~World();
 	void update(string inp);
+	void interpret(action a);
 
+	int totalCommands;
 	vector<Entity*> elements;
 	Player* player;
 };

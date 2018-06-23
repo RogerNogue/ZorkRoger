@@ -12,3 +12,26 @@ Player::Player(string namep, string descriptionp, vector<Entity*> containsp, Roo
 Player::~Player()
 {
 }
+
+
+void Player::look() {
+
+}
+void Player::go(action a) {
+
+}
+void Player::grab(action a) {
+
+}
+void Player::drop(action a) {
+
+}
+void Player::use(action a) {
+
+}
+void Player::talk(action a) {
+
+}
+void Player::put(action a) {
+
+}
