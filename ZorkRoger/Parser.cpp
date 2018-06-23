@@ -44,8 +44,17 @@ action Parser::Parse(string str)
 	else {
 		if (tokens[0] == "look" || tokens[0] == "L") {
 			//cout << "lookin good" << endl;
-			ret.a = LOOK;
-			return ret;
+			if (mida == 1) {
+				ret.a = LOOK;
+				return ret;
+			}
+			else {
+				ret.a = LOOK;
+				ret.p1 = tokens[1];
+				//cout << "look with more, we got" << ret.p1 << endl;
+				return ret;
+			}
+			
 		}
 		if (tokens[0] == "grab") {
 			//cout << "grabbin good" << endl;

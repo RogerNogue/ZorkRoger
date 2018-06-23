@@ -5,7 +5,7 @@
 Entity::Entity(string namep, string descriptionp, vector<Entity*> containsp)
 {
 	name = namep;
-	description = description;
+	description = descriptionp;
 	contains = containsp;
 }
 

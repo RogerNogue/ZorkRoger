@@ -14,8 +14,16 @@ Player::~Player()
 }
 
 
-void Player::look() {
-
+void Player::look(action a) {
+	if (a.p1 == "") {
+		cout << "You look around" << endl;
+		location->printAllElements();
+	}
+	else {
+		//look into something
+		location->printSpecificElement(a.p1);
+	}
+	return;
 }
 void Player::go(action a) {
 

@@ -7,7 +7,7 @@ public:
 	Player(string namep, string descriptionp, vector<Entity*> containsp, Room* locationp);
 	~Player();
 
-	void look();
+	void look(action a);
 	void go(action a);
 	void grab(action a);
 	void drop(action a);
