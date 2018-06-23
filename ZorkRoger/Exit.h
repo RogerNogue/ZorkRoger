@@ -6,10 +6,10 @@ class Exit :
 	public Entity
 {
 public:
-	Exit();
+	Exit(type tp, string namep, string descriptionp, vector<Entity*> containsp, directionExit dirp, Room* sourcep, Room* destinationp);
 	~Exit();
 
-	
+	directionExit dir;
 	Room* source;
 	Room* destination;
 };

@@ -4,7 +4,7 @@ class Room :
 	public Entity
 {
 public:
-	Room();
+	Room(type tp, string namep, string descriptionp, vector<Entity*> containsp);
 	~Room();
 };
 

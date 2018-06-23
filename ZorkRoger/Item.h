@@ -4,7 +4,9 @@ class Item :
 	public Entity
 {
 public:
-	Item();
+	Item(type tp, string namep, string descriptionp, vector<Entity*> containsp, bool hard);
 	~Item();
+
+	bool hardToSee;
 };
 

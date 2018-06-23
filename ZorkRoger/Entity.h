@@ -4,10 +4,11 @@ using namespace std;
 class Entity
 {
 public:
-	Entity();
+	Entity(type tp, string namep, string descriptionp, vector<Entity*> containsp);
 	~Entity();
 	virtual void Update();
 	
+	type t;
 	string name;
 	string description;
 	vector<Entity*> contains;

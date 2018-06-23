@@ -28,10 +28,6 @@ vector<string> split(const string &s, char delim) {
 
 void Parser::Parse(string str, Player* p)
 {
-	actionInfo res;
-	res.action = LOOK;
-	res.a1 = "";
-	res.a2 = "";
 	vector<string> tokens = split(str, ' '); // split the input into words
 											 //health may be implemented
 	int mida = tokens.size();
