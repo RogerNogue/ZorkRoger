@@ -6,5 +6,6 @@ class Player :
 public:
 	Player(string namep, string descriptionp, vector<Entity*> containsp, Room* locationp);
 	~Player();
+
 };
 
