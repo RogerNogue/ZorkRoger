@@ -53,24 +53,24 @@ World::World()
 	vector<Entity*> graveyardOutsidePertenences;
 	graveyardOutsidePertenences.push_back(stone);
 	name = "graveyardOutside";
-	description = "Looks like I'm right in front of the graveyard doors";
+	description = "Looks like I'm right in front of a graveyard";
 	Room* graveyardOutside = new Room(name, description, graveyardOutsidePertenences);
 	elements.push_back(graveyardOutside);
 
 	name = "graveyardEntrance";
-	description = "I'm right inside the graveyard, there is a path to get deep in the graveyard in the north";
+	description = "I'm right inside the graveyard";
 	Room* graveyardEntrance = new Room(name, description, empty);
 	elements.push_back(graveyardEntrance);
 
 	name = "graveyard";
-	description = "I'm deep inside of the graveyard, i can see a sanctum in the east";
+	description = "I'm deep inside of the graveyard";
 	Room* graveyardCenter = new Room(name, description, empty);
 	elements.push_back(graveyardCenter);
 
 	vector<Entity*> sanctumEntrancePertenences;
 	sanctumEntrancePertenences.push_back(box);
 	name = "sanctumEntrance";
-	description = "I'm right in front of the sanctum, there's an inscription saying \"Hideo Kojima\" and a tunnel to the inside of the sanctum in the east";
+	description = "I'm right in front of the sanctum, there's an inscription saying \"Hideo Kojima\"";
 	Room* sanctumEntrance = new Room(name, description, sanctumEntrancePertenences);
 	elements.push_back(sanctumEntrance);
 
@@ -82,24 +82,29 @@ World::World()
 	elements.push_back(sanctum);
 
 	//exits creation
+	string description2;
 	name = "graveyardDoor";
-	description = "Closed door to the graveyard";
-	Exit* graveyardDoor = new Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, true);
+	description = "there is a door to the graveyard at the north";
+	description2 = "there is a door to the ouside at the south";
+	Exit* graveyardDoor = new Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, description2, true);
 	elements.push_back(graveyardDoor);
 
 	name = "graveyardPathway";
-	description = "Pathway to the center of the graveyard";
-	Exit* graveyardPathway = new Exit(name, description, empty, BOTH, graveyardEntrance, graveyardCenter, false);
+	description = "there is a pathway to the center of the graveyard at the north";
+	description2 = "there is a pathway to the entrance of the graveyard at the south";
+	Exit* graveyardPathway = new Exit(name, description, empty, BOTH, graveyardEntrance, graveyardCenter, description2, false);
 	elements.push_back(graveyardPathway);
 
 	name = "sanctumPathway";
-	description = "Pathway to the sanctum entrance";
-	Exit* sanctumPathway = new Exit(name, description, empty, BOTH, graveyardCenter, sanctumEntrance, false);
+	description = "there is a pathway to the sanctum entrance at the east";
+	description2 = "there is a pathway to the center of the graveyard at the west";
+	Exit* sanctumPathway = new Exit(name, description, empty, BOTH, graveyardCenter, sanctumEntrance, description2, false);
 	elements.push_back(sanctumPathway);
 
 	name = "sanctumTunnel";
-	description = "Tunnel to the inside of the sanctum";
-	Exit* sanctumTunnel = new Exit(name, description, empty, BOTH, sanctumEntrance, sanctum, false);
+	description = "there is a tunnel to the inside of the sanctum at the east";
+	description2 = "there is a tunnel to the entrance of the sanctum at the west";
+	Exit* sanctumTunnel = new Exit(name, description, empty, BOTH, sanctumEntrance, sanctum, description2, false);
 	elements.push_back(sanctumTunnel);
 
 	//Player creation
@@ -117,8 +122,22 @@ World::World()
 	NPC* vigilante = new NPC(name, description, vigilantePertenences, graveyardEntrance);
 	elements.push_back(vigilante);
 
-	//sine the vigilante was created after the Room he is in, he is added to the room to ease future interaction
+	//since the vigilante was created after the Room he is in, he is added to the room to ease future interaction
 	graveyardEntrance->addElement(vigilante);
+
+	//adding the exits to the rooms aswell
+	graveyardOutside->addElement(graveyardDoor);
+
+	graveyardEntrance->addElement(graveyardDoor);
+	graveyardEntrance->addElement(graveyardPathway);
+
+	graveyardCenter->addElement(graveyardPathway);
+	graveyardCenter->addElement(sanctumTunnel);
+
+	sanctumEntrance->addElement(sanctumPathway);
+	sanctumEntrance->addElement(sanctumTunnel);
+
+	sanctum->addElement(vigilante);
 
 
 	totalCommands = 0;

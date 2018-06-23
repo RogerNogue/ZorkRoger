@@ -26,7 +26,7 @@ void Player::look(action a) {
 	return;
 }
 void Player::go(action a) {
-
+	//i have to check the exit class.
 }
 void Player::grab(action a) {
 
