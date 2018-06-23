@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "item.h"
 
 class Room :
 	public Entity
@@ -10,6 +11,7 @@ public:
 
 	void addElement(Entity* e);
 	void printAllElements();
-	void printSpecificElement(string name);
+	Entity* printSpecificElement(string name);
+	Entity* grabItem(string n);
 };
 

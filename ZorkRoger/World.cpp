@@ -16,9 +16,14 @@ World::World()
 	vector<Entity*> stonePertenences;
 	stonePertenences.push_back(key);
 	name = "stone";
-	description = "a suspicious wierd shaped stone";
+	description = "a stone which is suspicious and wierd shaped";
 	Item* stone = new Item(name, description, stonePertenences, false, false);
 	elements.push_back(stone);
+
+	name = "stick";
+	description = "a useless stick";
+	Item* stick = new Item(name, description, empty, false, false);
+	elements.push_back(stick);
 
 	name = "torch";
 	description = "a torch that can help me see";
@@ -52,6 +57,7 @@ World::World()
 	//Rooms creation
 	vector<Entity*> graveyardOutsidePertenences;
 	graveyardOutsidePertenences.push_back(stone);
+	graveyardOutsidePertenences.push_back(stick);
 	name = "graveyardOutside";
 	description = "Looks like I'm right in front of a graveyard";
 	Room* graveyardOutside = new Room(name, description, graveyardOutsidePertenences);

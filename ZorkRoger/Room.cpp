@@ -24,15 +24,39 @@ void Room::printAllElements() {
 	}
 }
 
-void Room::printSpecificElement(string name) {
-	for (int i = 0; i < contains.size(); ++i) {
+Entity* Room::printSpecificElement(string name) {
+	for (int i = 0; i < contains.size(); i++) {
 		if (contains[i]->name == name) {
 			cout << "You look into " << name << ": " << endl;
-			for (int j = 0; j < contains[i]->contains.size(); ++j) {
-				cout << contains[i]->contains[j]->description << endl;
+			bool something = false;
+			for (int j = 0; j < contains[i]->contains.size(); j++) {
+
+				cout << "You found a " << contains[i]->contains[j]->description << endl;
+				Entity* item = contains[i]->contains[j];
+				contains[i]->contains.erase(contains[i]->contains.begin() + j);
+				something = true;
+				return item;
 			}
-			return;
+			if(!something) cout << "Theire is nothing else here" << endl;
+			return NULL;
 		}
 	}
 	cout << "There is no such thing here" << endl;
+}
+
+Entity* Room::grabItem(string n) {
+	for (int i = 0; i < contains.size(); i++) {
+		if (contains[i]->name == n){
+			//cout << "item found, size =  " << contains[i]->contains.size() << contains[i]->contains[0] << endl;
+			if (contains[i]->t == ITEM and contains[i]->contains.size() == 0) {
+				//it can be grabbed
+				Entity* item = contains[i];
+				contains.erase (contains.begin()+i);
+			}
+			else {
+				cout << "The item cannot be grabbed " << endl;
+				return NULL;
+			}
+		}
+	}
 }

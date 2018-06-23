@@ -21,7 +21,10 @@ void Player::look(action a) {
 	}
 	else {
 		//look into something
-		location->printSpecificElement(a.p1);
+		Entity* item = location->printSpecificElement(a.p1);
+		if (item != NULL) {
+			contains.push_back(item);
+		}
 	}
 	return;
 }
@@ -29,7 +32,10 @@ void Player::go(action a) {
 	//i have to check the exit class.
 }
 void Player::grab(action a) {
-
+	Entity* item = location->grabItem(a.p1);
+	if (item != NULL) {
+		contains.push_back(item);
+	}
 }
 void Player::drop(action a) {
 
