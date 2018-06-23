@@ -13,13 +13,20 @@ enum type {
 };
 
 enum direction {
-	N, S, E, W
+	N, S, E, W, NONE
 };
 
 enum actions {
-	LOOK, GO, GRAB, USE, TALK, PUT
+	LOOK, GO, GRAB, DROP, USE, TALK, PUT, ERROR
 };
 
 enum directionExit{
 	BOTH
+};
+
+struct action {
+	actions a;
+	direction dir;
+	string p1;
+	string p2;
 };

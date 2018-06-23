@@ -11,36 +11,43 @@ World::World()
 	name = "key";
 	description = "a dusty old key";
 	Item* key = &Item(name, description, empty, false, false);
+	elements.push_back(key);
 
 	vector<Entity*> stonePertenences;
 	stonePertenences.push_back(key);
 	name = "stone";
 	description = "a suspicious wierd shaped stone";
 	Item* stone = &Item(name, description, stonePertenences, false, false);
+	elements.push_back(stone);
 
 	name = "torch";
 	description = "a torch that can help me see";
 	Item* torch = &Item(name, description, empty, false, true);
+	elements.push_back(torch);
 
 	name = "paper";
 	description = "a small paper that says \" legend says this person was rich\"";
 	Item* paper = &Item(name, description, empty, false, false);
+	elements.push_back(paper);
 	
 	vector<Entity*> boxPertenences;
 	boxPertenences.push_back(paper);
 	name = "box";
 	description = "a little wooden box";
 	Item* box = &Item(name, description, boxPertenences, false, false);
+	elements.push_back(box);
 
 	name = "prize";
 	description = "wow, a bitcoin cupon";
 	Item* secretPrize = &Item(name, description, empty, true, false);
+	elements.push_back(secretPrize);
 
 	vector<Entity*> tombPertenences;
 	tombPertenences.push_back(secretPrize);
 	name = "tomb";
 	description = "looks like arelatively recent tomb";
 	Item* tomb = &Item(name, description, tombPertenences, false, false);
+	elements.push_back(tomb);
 
 	//Rooms creation
 	vector<Entity*> graveyardOutsidePertenences;
@@ -48,48 +55,59 @@ World::World()
 	name = "graveyardOutside";
 	description = "Looks like I'm right in front of the graveyard doors";
 	Room* graveyardOutside = &Room(name, description, graveyardOutsidePertenences);
+	elements.push_back(graveyardOutside);
 
 	name = "graveyardEntrance";
 	description = "I'm right inside the graveyard, there is a path to get deep in the graveyard in the north";
 	Room* graveyardEntrance = &Room(name, description, empty);
+	elements.push_back(graveyardEntrance);
 
 	name = "graveyard";
 	description = "I'm deep inside of the graveyard, i can see a sanctum in the east";
 	Room* graveyardCenter = &Room(name, description, empty);
+	elements.push_back(graveyardCenter);
 
 	vector<Entity*> sanctumEntrancePertenences;
 	sanctumEntrancePertenences.push_back(box);
 	name = "sanctumEntrance";
 	description = "I'm right in front of the sanctum, there's an inscription saying \"Hideo Kojima\" and a tunnel to the inside of the sanctum in the east";
 	Room* sanctumEntrance = &Room(name, description, sanctumEntrancePertenences);
+	elements.push_back(sanctumEntrance);
 
 	vector<Entity*> sanctumPertenences;
 	sanctumPertenences.push_back(tomb);
 	name = "sanctum";
 	description = "I'm inside the sanctum";
 	Room* sanctum = &Room(name, description, sanctumPertenences);
+	elements.push_back(sanctum);
 
 	//exits creation
 	name = "graveyardDoor";
 	description = "Closed door to the graveyard";
 	Exit* graveyardDoor = &Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, true);
+	elements.push_back(graveyardDoor);
 
 	name = "graveyardPathway";
 	description = "Pathway to the center of the graveyard";
 	Exit* graveyardPathway = &Exit(name, description, empty, BOTH, graveyardEntrance, graveyardCenter, false);
+	elements.push_back(graveyardPathway);
 
 	name = "sanctumPathway";
 	description = "Pathway to the sanctum entrance";
 	Exit* sanctumPathway = &Exit(name, description, empty, BOTH, graveyardCenter, sanctumEntrance, false);
+	elements.push_back(sanctumPathway);
 
 	name = "sanctumTunnel";
 	description = "Tunnel to the inside of the sanctum";
 	Exit* sanctumTunnel = &Exit(name, description, empty, BOTH, sanctumEntrance, sanctum, false);
+	elements.push_back(sanctumTunnel);
 
 	//Player creation
 	name = "player";
 	description = "And this is you, a greedy person without principles.";
 	Player* p = &Player(name, description, empty, graveyardOutside);
+	elements.push_back(p);
+	player = p;
 
 	vector<Entity*> vigilantePertenences;
 	vigilantePertenences.push_back(torch);
@@ -97,8 +115,8 @@ World::World()
 	name = "vigilante";
 	description = "Looks like there is a bored vigilante here";
 	NPC* vigilante = &NPC(name, description, vigilantePertenences, graveyardEntrance);
+	elements.push_back(vigilante);
 
-	//placing everything into the world array
 }
 
 
@@ -107,5 +125,5 @@ World::~World()
 }
 
 void World::update(string inp) {
-	Parser::Parse(inp, player);
+	action a = Parser::Parse(inp);
 }

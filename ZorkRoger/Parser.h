@@ -6,7 +6,7 @@ static class Parser
 public:
 	Parser();
 	~Parser();
-	static void Parse(string str, Player* p);
+	static action Parse(string str);
 
 };
 
