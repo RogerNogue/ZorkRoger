@@ -17,7 +17,7 @@ enum direction {
 };
 
 enum actions {
-	LOOK, GO, GRAB, DROP, USE, TALK, PUT, ERROR
+	LOOK, GO, GRAB, DROP, USE, TALK, PUT, ERROR, INVENTORY
 };
 
 enum directionExit{

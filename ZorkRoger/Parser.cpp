@@ -54,7 +54,11 @@ action Parser::Parse(string str)
 				//cout << "look with more, we got" << ret.p1 << endl;
 				return ret;
 			}
-			
+
+		}
+		if (tokens[0] == "inventory") {
+			ret.a = INVENTORY;
+			return ret;
 		}
 		if (tokens[0] == "grab") {
 			//cout << "grabbin good" << endl;

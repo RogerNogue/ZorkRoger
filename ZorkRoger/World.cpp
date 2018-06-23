@@ -159,6 +159,8 @@ void World::interpret(action a) {
 		case LOOK:
 			player->look(a);
 			return;
+		case INVENTORY:
+			player->inventory();
 		case GO:
 			player->go(a);
 			return;

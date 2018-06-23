@@ -8,6 +8,7 @@ public:
 	~Player();
 
 	void look(action a);
+	void inventory();
 	void go(action a);
 	void grab(action a);
 	void drop(action a);

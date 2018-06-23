@@ -52,6 +52,7 @@ Entity* Room::grabItem(string n) {
 				//it can be grabbed
 				Entity* item = contains[i];
 				contains.erase (contains.begin()+i);
+				return item;
 			}
 			else {
 				cout << "The item cannot be grabbed " << endl;

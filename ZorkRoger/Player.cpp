@@ -28,6 +28,17 @@ void Player::look(action a) {
 	}
 	return;
 }
+void Player::inventory() {
+	int elems = contains.size();
+	if (elems == 0) {
+		cout << "You have nothing " << endl;
+	}
+	else {
+		for (int i = 0; i < contains.size(); ++i) {
+			cout << "There is " << contains[i]->description << endl;
+		}
+	}
+}
 void Player::go(action a) {
 	//i have to check the exit class.
 }
