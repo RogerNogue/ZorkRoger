@@ -5,16 +5,20 @@
 
 World::World()
 {
+	/*
 	//Rooms creation
-	Room* graveyardOutside();
+	string name = "Starting location";
+	string desc = "Looks like I'm right in front of the graveyard doors";
+	Room* graveyardOutside(name, desc, vector<Entity*>);
 
-	Room* graveyardEntrance();
+	Room* graveyardEntrance(roomType);
 
-	Room* graveyardEntrance();
+	Room* graveyardEntrance(roomType);
 
-	Room* sanctumEntrance();
+	Room* sanctumEntrance(roomType);
 
-	Room* sanctum();
+	Room* sanctum(roomType);
+	*/
 
 	//exits creation
 	Exit* graveyardDoor();

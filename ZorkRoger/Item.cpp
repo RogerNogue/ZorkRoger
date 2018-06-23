@@ -2,9 +2,10 @@
 
 
 
-Item::Item(type tp, string namep, string descriptionp, vector<Entity*> containsp, bool hard) :
-	Entity(tp, namep, descriptionp, containsp)
+Item::Item(string namep, string descriptionp, vector<Entity*> containsp, bool hard) :
+	Entity(namep, descriptionp, containsp)
 {
+	t = ITEM;
 	hardToSee = hard;
 }
 

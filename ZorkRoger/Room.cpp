@@ -2,9 +2,10 @@
 
 
 
-Room::Room(type tp, string namep, string descriptionp, vector<Entity*> containsp):
-	Entity(tp, namep, descriptionp, containsp)
+Room::Room(string namep, string descriptionp, vector<Entity*> containsp):
+	Entity(namep, descriptionp, containsp)
 {
+	t = ROOM;
 }
 
 

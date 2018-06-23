@@ -4,7 +4,7 @@ using namespace std;
 class Entity
 {
 public:
-	Entity(type tp, string namep, string descriptionp, vector<Entity*> containsp);
+	Entity(string namep, string descriptionp, vector<Entity*> containsp);
 	~Entity();
 	virtual void Update();
 	

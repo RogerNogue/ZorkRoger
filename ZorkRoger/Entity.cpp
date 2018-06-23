@@ -2,9 +2,8 @@
 
 
 
-Entity::Entity(type tp, string namep, string descriptionp, vector<Entity*> containsp)
+Entity::Entity(string namep, string descriptionp, vector<Entity*> containsp)
 {
-	t = tp;
 	name = namep;
 	description = description;
 	contains = containsp;

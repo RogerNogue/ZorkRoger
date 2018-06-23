@@ -6,7 +6,7 @@ class Exit :
 	public Entity
 {
 public:
-	Exit(type tp, string namep, string descriptionp, vector<Entity*> containsp, directionExit dirp, Room* sourcep, Room* destinationp);
+	Exit(string namep, string descriptionp, vector<Entity*> containsp, directionExit dirp, Room* sourcep, Room* destinationp);
 	~Exit();
 
 	directionExit dir;
