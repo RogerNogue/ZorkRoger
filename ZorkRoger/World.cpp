@@ -10,48 +10,48 @@ World::World()
 	//Items creation
 	name = "key";
 	description = "a rusty old key";
-	Item* key = new Item(name, description, empty, false, false);
+	Item* key = new Item(name, description, empty, false, false, false, "", true);
 	elements.push_back(key);
 
 	vector<Entity*> stonePertenences;
 	stonePertenences.push_back(key);
 	name = "stone";
 	description = "a stone which is suspicious and wierd shaped";
-	Item* stone = new Item(name, description, stonePertenences, false, false);
+	Item* stone = new Item(name, description, stonePertenences, false, false, false, "", false);
 	elements.push_back(stone);
 
 	name = "stick";
 	description = "a useless stick";
-	Item* stick = new Item(name, description, empty, false, false);
+	Item* stick = new Item(name, description, empty, false, false, false, "", true);
 	elements.push_back(stick);
 
 	name = "torch";
 	description = "a torch that can help me see";
-	Item* torch = new Item(name, description, empty, false, true);
+	Item* torch = new Item(name, description, empty, false, true, true, "a torch lighting the way", true);
 	elements.push_back(torch);
 
 	name = "paper";
 	description = "a small paper that says \" legend says this person was rich\"";
-	Item* paper = new Item(name, description, empty, false, false);
+	Item* paper = new Item(name, description, empty, false, false, false, "", true);
 	elements.push_back(paper);
 	
 	vector<Entity*> boxPertenences;
 	boxPertenences.push_back(paper);
 	name = "box";
 	description = "a little wooden box";
-	Item* box = new Item(name, description, boxPertenences, false, false);
+	Item* box = new Item(name, description, boxPertenences, false, false, false, "", false);
 	elements.push_back(box);
 
 	name = "prize";
 	description = "wow, a bitcoin cupon";
-	Item* secretPrize = new Item(name, description, empty, true, false);
+	Item* secretPrize = new Item(name, description, empty, true, false, false, "", true);
 	elements.push_back(secretPrize);
 
 	vector<Entity*> tombPertenences;
 	tombPertenences.push_back(secretPrize);
 	name = "tomb";
 	description = "looks like arelatively recent tomb";
-	Item* tomb = new Item(name, description, tombPertenences, false, false);
+	Item* tomb = new Item(name, description, tombPertenences, false, false, true, "an open tomb with a rotting body", false);
 	elements.push_back(tomb);
 
 	//Rooms creation

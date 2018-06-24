@@ -63,13 +63,18 @@ Entity* Room::grabItem(string n) {
 	for (int i = 0; i < contains.size(); i++) {
 		if (contains[i]->name == n){
 			//cout << "item found, size =  " << contains[i]->contains.size() << contains[i]->contains[0] << endl;
-			if (contains[i]->t == ITEM and contains[i]->contains.size() == 0) {
-				//it can be grabbed
-				Entity* item = contains[i];
-				contains.erase (contains.begin()+i);
-				return item;
-			}
-			else {
+			if (contains[i]->t == ITEM){
+				Item* itemfound = dynamic_cast<Item*>(contains[i]);
+				if (itemfound->canBeGrabbed) {
+					//it can be grabbed
+					Entity* item = contains[i];
+					contains.erase(contains.begin() + i);
+					return item;
+				}else {
+					cout << "The item cannot be grabbed " << endl;
+					return NULL;
+				}
+			}else {
 				cout << "The item cannot be grabbed " << endl;
 				return NULL;
 			}
