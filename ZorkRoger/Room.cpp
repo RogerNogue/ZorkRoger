@@ -61,10 +61,17 @@ Entity* Room::printSpecificElement(string name, bool light) {
 						return NULL;
 					}
 				}
-				cout << "You found a " << contains[i]->contains[j]->description << endl;
+				cout << "You found " << contains[i]->contains[j]->description << endl;
+				if (contains[i]->contains[j]->name == "cupon") {
+					cout << "Congratulations, apparently you've just became wealthy " << endl;
+					cout << "You've won, but I'm gonna let you stay here and mess around, keep having fun! " << endl;
+				}
 				Entity* item = contains[i]->contains[j];
 				contains[i]->contains.erase(contains[i]->contains.begin() + j);
 				something = true;
+				if (contains[i]->contains.size() > 0) {
+					cout << "There may be something else inside" << endl;
+				}else cout << "There is nothing else inside" << endl;
 				return item;
 			}
 			if(!something) cout << "Looks like There is nothing else here" << endl;
@@ -72,6 +79,7 @@ Entity* Room::printSpecificElement(string name, bool light) {
 		}
 	}
 	cout << "There is no such thing here" << endl;
+	return NULL;
 }
 
 Entity* Room::grabItem(string n) {
@@ -95,6 +103,8 @@ Entity* Room::grabItem(string n) {
 			}
 		}
 	}
+	cout << "There is no such thing here" << endl;
+	return NULL;
 }
 
 Room* Room::move(direction dir, bool key) {
@@ -149,4 +159,24 @@ Entity* Room::talkTo(string n) {
 	}
 	cout << "There is no such person to talk to " << endl;
 	return NULL;
+}
+
+bool Room::put(Entity* a, string b) {
+	for (int i = 0; i < contains.size(); ++i) {
+		if (contains[i]->name == b) {
+			Item* itemFound = dynamic_cast<Item*>(contains[i]);
+			if (!itemFound->canBeGrabbed) {
+				//the item contains things, so it is not to be grabbed
+				itemFound->contains.push_back(a);
+				cout << "Put " << a->name << " inside " << itemFound->name << endl;
+				return true;
+			}
+			else {
+				cout << "It doesn't fit inside " << endl;
+				return false;
+			}
+		}
+	}
+	cout << "There is no such item here " << endl;
+	return false;
 }

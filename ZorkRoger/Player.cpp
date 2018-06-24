@@ -8,6 +8,7 @@ Player::Player(string namep, string descriptionp, vector<Entity*> containsp, Roo
 	t = PLAYER;
 	key = false;
 	lighted = false;
+	won = false;
 }
 
 
@@ -112,5 +113,14 @@ void Player::talk(action a) {
 	}
 }
 void Player::put(action a) {
-
+	bool haveItem = false;
+	bool done = false;
+	for (int i = 0; i < contains.size(); ++i) {
+		if (contains[i]->name == a.p1) {
+			haveItem = true;
+			done = location->put(contains[i], a.p2);
+			if (done) contains.erase(contains.begin() + i);
+		}
+	}
+	if (!haveItem) cout << "You don't have the item " << endl;
 }

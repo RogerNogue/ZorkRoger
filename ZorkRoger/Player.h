@@ -17,5 +17,6 @@ public:
 	void use(action a);
 	void talk(action a);
 	void put(action a);
+	bool won;
 };
 

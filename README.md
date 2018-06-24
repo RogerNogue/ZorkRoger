@@ -1,4 +1,10 @@
 # ZorkRoger
+The game is inspired on the game Zork.
+
+Authors: Roger Nogué Ballbé.
+
+github repo:
+
 Decisions taken:
 
 - Instead of implementing the parser right into the class World I decided to have a static class

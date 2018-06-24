@@ -15,5 +15,6 @@ public:
 	Entity* grabItem(string n);
 	Entity* talkTo(string n);
 	Room* move(direction dir, bool key);
+	bool put(Entity* a, string b);
 };
 

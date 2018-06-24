@@ -104,7 +104,7 @@ action Parser::Parse(string str)
 			return ret;
 		}if (tokens[0] == "put") {
 			//cout << "puttin good" << endl;
-			ret.a = DROP;
+			ret.a = PUT;
 			ret.p1 = tokens[1];
 			ret.p2 = tokens[2];
 			return ret;

@@ -31,18 +31,18 @@ World::World()
 	elements.push_back(torch);
 
 	name = "paper";
-	description = "a small paper that says \" legend says this person was rich\"";
+	description = "a small paper that says \"legend says this person was rich\"";
 	Item* paper = new Item(name, description, empty, false, false, false, "", true);
 	elements.push_back(paper);
 	
 	vector<Entity*> boxPertenences;
 	boxPertenences.push_back(paper);
 	name = "box";
-	description = "a little wooden box";
+	description = "a wooden box";
 	Item* box = new Item(name, description, boxPertenences, false, false, false, "", false);
 	elements.push_back(box);
 
-	name = "prize";
+	name = "cupon";
 	description = "a bitcoin cupon!";
 	Item* secretPrize = new Item(name, description, empty, true, false, false, "", true);
 	elements.push_back(secretPrize);
@@ -90,8 +90,8 @@ World::World()
 	//exits creation
 	string description2;
 	name = "graveyardDoor";
-	description = " a door to the graveyard at the north";
-	description2 = " a door to the ouside at the south";
+	description = "a door to the graveyard at the north";
+	description2 = "a door to the ouside at the south";
 	Exit* graveyardDoor = new Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, S, N, description2, true);
 	elements.push_back(graveyardDoor);
 
@@ -124,7 +124,7 @@ World::World()
 	vigilantePertenences.push_back(torch);
 	//NPCs creation
 	name = "vigilante";
-	description = " a bored vigilante here";
+	description = "a bored vigilante here";
 	NPC* vigilante = new NPC(name, description, vigilantePertenences, graveyardEntrance);
 	elements.push_back(vigilante);
 
