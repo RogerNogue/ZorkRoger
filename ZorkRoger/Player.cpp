@@ -81,6 +81,7 @@ void Player::use(action a) {
 				if (itemfound->name == "torch") {
 					lighted = true;
 					itemfound->used = true;
+					cout << "Now you are lighting the way, things are easier to see " << endl;
 				}
 				else {
 					itemfound->used = true;
@@ -91,6 +92,7 @@ void Player::use(action a) {
 				if (itemfound->name == "torch") {
 					lighted = false;
 					itemfound->used = false;
+					cout << "You turned the torch off, you may have a hard time seeing properly " << endl;
 				}
 				else {
 					itemfound->used = false;

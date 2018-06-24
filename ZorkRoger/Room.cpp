@@ -36,6 +36,14 @@ void Room::printAllElements(bool light) {
 			}else {
 				printItem(contains[i]);
 			}
+		}else if (contains[i]->t == EXIT) {
+			Exit* exitFound = dynamic_cast<Exit*>(contains[i]);
+			if (name == exitFound->destination->name) {
+				cout << "There is " << exitFound->description2 << endl;
+			}
+			else {
+				printItem(contains[i]);
+			}
 		}else printItem(contains[i]);
 	}
 }

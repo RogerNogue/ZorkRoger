@@ -7,6 +7,7 @@ Item::Item(string namep, string descriptionp, vector<Entity*> containsp, bool ha
 {
 	descriptionUsed = descriptionUsedp;
 	canBeGrabbed = canBeGrabbedp;
+	canBeUsed = canBeUsedp;
 	t = ITEM;
 	hardToSee = hard;
 	lights = lightsp;
