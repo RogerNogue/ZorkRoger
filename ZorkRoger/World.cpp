@@ -43,15 +43,15 @@ World::World()
 	elements.push_back(box);
 
 	name = "prize";
-	description = "wow, a bitcoin cupon";
+	description = "a bitcoin cupon!";
 	Item* secretPrize = new Item(name, description, empty, true, false, false, "", true);
 	elements.push_back(secretPrize);
 
 	vector<Entity*> tombPertenences;
 	tombPertenences.push_back(secretPrize);
 	name = "tomb";
-	description = "looks like arelatively recent tomb";
-	Item* tomb = new Item(name, description, tombPertenences, false, false, true, "an open tomb with a rotting body", false);
+	description = "a relatively recent tomb";
+	Item* tomb = new Item(name, description, tombPertenences, false, false, false, "", false);
 	elements.push_back(tomb);
 
 	//Rooms creation
@@ -59,7 +59,7 @@ World::World()
 	graveyardOutsidePertenences.push_back(stone);
 	graveyardOutsidePertenences.push_back(stick);
 	name = "graveyardOutside";
-	description = "Looks like I'm right in front of a graveyard";
+	description = "I'm right in front of a graveyard";
 	Room* graveyardOutside = new Room(name, description, graveyardOutsidePertenences);
 	elements.push_back(graveyardOutside);
 
@@ -90,26 +90,26 @@ World::World()
 	//exits creation
 	string description2;
 	name = "graveyardDoor";
-	description = "there is a door to the graveyard at the north";
-	description2 = "there is a door to the ouside at the south";
+	description = " a door to the graveyard at the north";
+	description2 = " a door to the ouside at the south";
 	Exit* graveyardDoor = new Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, S, N, description2, true);
 	elements.push_back(graveyardDoor);
 
 	name = "graveyardPathway";
-	description = "there is a pathway to the center of the graveyard at the north";
-	description2 = "there is a pathway to the entrance of the graveyard at the south";
+	description = "a pathway to the center of the graveyard at the north";
+	description2 = "a pathway to the entrance of the graveyard at the south";
 	Exit* graveyardPathway = new Exit(name, description, empty, BOTH, graveyardEntrance, graveyardCenter, S, N, description2, false);
 	elements.push_back(graveyardPathway);
 
 	name = "sanctumPathway";
-	description = "there is a pathway to the sanctum entrance at the east";
-	description2 = "there is a pathway to the center of the graveyard at the west";
+	description = "a pathway to the sanctum entrance at the east";
+	description2 = "a pathway to the center of the graveyard at the west";
 	Exit* sanctumPathway = new Exit(name, description, empty, BOTH, graveyardCenter, sanctumEntrance, W, E, description2, false);
 	elements.push_back(sanctumPathway);
 
 	name = "sanctumTunnel";
-	description = "there is a tunnel to the inside of the sanctum at the east";
-	description2 = "there is a tunnel to the entrance of the sanctum at the west";
+	description = "a tunnel to the inside of the sanctum at the east";
+	description2 = "a tunnel to the entrance of the sanctum at the west";
 	Exit* sanctumTunnel = new Exit(name, description, empty, BOTH, sanctumEntrance, sanctum, W, E, description2, false);
 	elements.push_back(sanctumTunnel);
 
@@ -124,7 +124,7 @@ World::World()
 	vigilantePertenences.push_back(torch);
 	//NPCs creation
 	name = "vigilante";
-	description = "Looks like there is a bored vigilante here";
+	description = " a bored vigilante here";
 	NPC* vigilante = new NPC(name, description, vigilantePertenences, graveyardEntrance);
 	elements.push_back(vigilante);
 
@@ -138,10 +138,12 @@ World::World()
 	graveyardEntrance->addElement(graveyardPathway);
 
 	graveyardCenter->addElement(graveyardPathway);
-	graveyardCenter->addElement(sanctumTunnel);
+	graveyardCenter->addElement(sanctumPathway);
 
 	sanctumEntrance->addElement(sanctumPathway);
 	sanctumEntrance->addElement(sanctumTunnel);
+
+	sanctum->addElement(sanctumTunnel);
 
 
 	totalCommands = 0;

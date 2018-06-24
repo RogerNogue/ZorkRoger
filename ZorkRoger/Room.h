@@ -11,7 +11,7 @@ public:
 
 	void addElement(Entity* e);
 	void printAllElements(bool light);
-	Entity* printSpecificElement(string name);
+	Entity* printSpecificElement(string name, bool light);
 	Entity* grabItem(string n);
 	Room* move(direction dir, bool key);
 };

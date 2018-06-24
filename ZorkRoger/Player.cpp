@@ -15,7 +15,6 @@ Player::~Player()
 {
 }
 
-
 void Player::look(action a) {
 	if (a.p1 == "") {
 		cout << "You look around" << endl;
@@ -23,7 +22,7 @@ void Player::look(action a) {
 	}
 	else {
 		//look into something
-		Entity* item = location->printSpecificElement(a.p1);
+		Entity* item = location->printSpecificElement(a.p1, lighted);
 		if (item != NULL) {
 			contains.push_back(item);
 			if (item->name == "key") key = true;
@@ -70,7 +69,37 @@ void Player::drop(action a) {
 	if(!itemFound) cout << "You don't have that item " << endl;
 }
 void Player::use(action a) {
-
+	bool itemFound = false;
+	for (int i = 0; i < contains.size(); ++i) {
+		if (contains[i]->name == a.p1) {
+			Item* itemfound = dynamic_cast<Item*>(contains[i]);
+			if (!itemfound->canBeUsed) {
+				cout << "The item cannot be used " << endl;
+				return;
+			}
+			else if(!itemfound->used){
+				if (itemfound->name == "torch") {
+					lighted = true;
+					itemfound->used = true;
+				}
+				else {
+					itemfound->used = true;
+				}
+			}
+			else {
+				//case it is being used
+				if (itemfound->name == "torch") {
+					lighted = false;
+					itemfound->used = false;
+				}
+				else {
+					itemfound->used = false;
+				}
+			}
+			itemFound = true;
+		}
+	}
+	if (!itemFound) cout << "You don't have that item " << endl;
 }
 void Player::talk(action a) {
 

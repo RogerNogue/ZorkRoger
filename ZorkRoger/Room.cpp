@@ -39,20 +39,26 @@ void Room::printAllElements(bool light) {
 	}
 }
 
-Entity* Room::printSpecificElement(string name) {
+Entity* Room::printSpecificElement(string name, bool light) {
 	for (int i = 0; i < contains.size(); i++) {
 		if (contains[i]->name == name) {
 			cout << "You look into " << name << ": " << endl;
 			bool something = false;
 			for (int j = 0; j < contains[i]->contains.size(); j++) {
-
+				Item* itemfound = dynamic_cast<Item*>(contains[i]->contains[j]);
+				if (itemfound->hardToSee) {
+					if (!light) {
+						if (!something) cout << "Looks like There is nothing here" << endl;
+						return NULL;
+					}
+				}
 				cout << "You found a " << contains[i]->contains[j]->description << endl;
 				Entity* item = contains[i]->contains[j];
 				contains[i]->contains.erase(contains[i]->contains.begin() + j);
 				something = true;
 				return item;
 			}
-			if(!something) cout << "Theire is nothing else here" << endl;
+			if(!something) cout << "Looks like There is nothing else here" << endl;
 			return NULL;
 		}
 	}
@@ -85,7 +91,7 @@ Entity* Room::grabItem(string n) {
 Room* Room::move(direction dir, bool key) {
 	for (int i = 0; i < contains.size(); ++i) {
 		if (contains[i]->t == EXIT) {
-			
+			cout << "Checking the exit " << contains[i]->name << endl;
 			Exit* pathway = dynamic_cast<Exit*>(contains[i]);//supposed to work
 			if (pathway->source->name == name) {
 				if (pathway->destinationDir == dir) {
