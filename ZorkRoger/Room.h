@@ -13,6 +13,7 @@ public:
 	void printAllElements(bool light);
 	Entity* printSpecificElement(string name, bool light);
 	Entity* grabItem(string n);
+	Entity* talkTo(string n);
 	Room* move(direction dir, bool key);
 };
 

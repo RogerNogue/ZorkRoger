@@ -1,5 +1,6 @@
 #include "Room.h"
 #include "Exit.h"
+#include "NPC.h"
 
 
 
@@ -91,7 +92,6 @@ Entity* Room::grabItem(string n) {
 Room* Room::move(direction dir, bool key) {
 	for (int i = 0; i < contains.size(); ++i) {
 		if (contains[i]->t == EXIT) {
-			cout << "Checking the exit " << contains[i]->name << endl;
 			Exit* pathway = dynamic_cast<Exit*>(contains[i]);//supposed to work
 			if (pathway->source->name == name) {
 				if (pathway->destinationDir == dir) {
@@ -116,5 +116,29 @@ Room* Room::move(direction dir, bool key) {
 		}
 	}
 	cout << "no place in this direction "<< endl;
+	return NULL;
+}
+
+Entity* Room::talkTo(string n) {
+	for (int i = 0; i < contains.size(); i++) {
+		if (contains[i]->name == n) {
+			//cout << "item found, size =  " << contains[i]->contains.size() << contains[i]->contains[0] << endl;
+			if (contains[i]->t == NPCE) {
+				NPC* npcFound = dynamic_cast<NPC*>(contains[i]);
+				if (npcFound->contains.size() > 0) {
+					//it can be grabbed
+					cout << "What a nice fella! I didn't expect someone with manners to come and say hi to me, take this thing " << endl;
+					Entity* item = npcFound->contains[0];
+					npcFound->contains.erase(npcFound->contains.begin());
+					return item;
+				}
+				else {
+					cout << "Sorry lad! I've given you everything I had " << endl;
+					return NULL;
+				}
+			}
+		}
+	}
+	cout << "There is no such person to talk to " << endl;
 	return NULL;
 }

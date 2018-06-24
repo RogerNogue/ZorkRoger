@@ -102,7 +102,12 @@ void Player::use(action a) {
 	if (!itemFound) cout << "You don't have that item " << endl;
 }
 void Player::talk(action a) {
-
+	Entity* item = location->talkTo(a.p1);
+	if (item != NULL) {
+		contains.push_back(item);
+		if (item->name == "key") key = true;
+		cout << "You obtainted " << item->description << endl;
+	}
 }
 void Player::put(action a) {
 

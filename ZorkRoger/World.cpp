@@ -26,7 +26,7 @@ World::World()
 	elements.push_back(stick);
 
 	name = "torch";
-	description = "a torch that can help me see";
+	description = "a torch that can help you see";
 	Item* torch = new Item(name, description, empty, false, true, true, "a torch lighting the way", true);
 	elements.push_back(torch);
 
