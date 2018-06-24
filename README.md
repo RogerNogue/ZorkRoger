@@ -8,3 +8,7 @@ this decision is to avoid copying the structure given in the example.
 
 - As for the extra feature I thought of having usable items such as torches that allow the
 player to see objects in the dark.
+
+- At some point i realised that in I would have put the classes Exit and Room together since it
+makes some sense to have a path to another room as an element of the room. I have not done it to
+maintain the initial structure.

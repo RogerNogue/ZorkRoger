@@ -7,6 +7,8 @@ public:
 	Player(string namep, string descriptionp, vector<Entity*> containsp, Room* locationp);
 	~Player();
 
+	bool key;
+
 	void look(action a);
 	void inventory();
 	void go(action a);

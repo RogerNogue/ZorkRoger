@@ -6,6 +6,7 @@ Player::Player(string namep, string descriptionp, vector<Entity*> containsp, Roo
 	Creature(namep, descriptionp, containsp, locationp)
 {
 	t = PLAYER;
+	key = false;
 }
 
 
@@ -24,6 +25,7 @@ void Player::look(action a) {
 		Entity* item = location->printSpecificElement(a.p1);
 		if (item != NULL) {
 			contains.push_back(item);
+			if (item->name == "key") key = true;
 		}
 	}
 	return;
@@ -41,11 +43,17 @@ void Player::inventory() {
 }
 void Player::go(action a) {
 	//i have to check the exit class.
+	Room* newLoc = location->move(a.dir, key);
+	if (newLoc != NULL) {
+		location = newLoc;
+	}
 }
 void Player::grab(action a) {
 	Entity* item = location->grabItem(a.p1);
 	if (item != NULL) {
 		contains.push_back(item);
+		if (item->name == "key") key = true;
+		cout << "You grabbed " << item->description << endl;
 	}
 }
 void Player::drop(action a) {

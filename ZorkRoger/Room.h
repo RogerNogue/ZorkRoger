@@ -13,5 +13,6 @@ public:
 	void printAllElements();
 	Entity* printSpecificElement(string name);
 	Entity* grabItem(string n);
+	Room* move(direction dir, bool key);
 };
 

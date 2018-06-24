@@ -92,25 +92,25 @@ World::World()
 	name = "graveyardDoor";
 	description = "there is a door to the graveyard at the north";
 	description2 = "there is a door to the ouside at the south";
-	Exit* graveyardDoor = new Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, description2, true);
+	Exit* graveyardDoor = new Exit(name, description, empty, BOTH, graveyardOutside, graveyardEntrance, S, N, description2, true);
 	elements.push_back(graveyardDoor);
 
 	name = "graveyardPathway";
 	description = "there is a pathway to the center of the graveyard at the north";
 	description2 = "there is a pathway to the entrance of the graveyard at the south";
-	Exit* graveyardPathway = new Exit(name, description, empty, BOTH, graveyardEntrance, graveyardCenter, description2, false);
+	Exit* graveyardPathway = new Exit(name, description, empty, BOTH, graveyardEntrance, graveyardCenter, S, N, description2, false);
 	elements.push_back(graveyardPathway);
 
 	name = "sanctumPathway";
 	description = "there is a pathway to the sanctum entrance at the east";
 	description2 = "there is a pathway to the center of the graveyard at the west";
-	Exit* sanctumPathway = new Exit(name, description, empty, BOTH, graveyardCenter, sanctumEntrance, description2, false);
+	Exit* sanctumPathway = new Exit(name, description, empty, BOTH, graveyardCenter, sanctumEntrance, W, E, description2, false);
 	elements.push_back(sanctumPathway);
 
 	name = "sanctumTunnel";
 	description = "there is a tunnel to the inside of the sanctum at the east";
 	description2 = "there is a tunnel to the entrance of the sanctum at the west";
-	Exit* sanctumTunnel = new Exit(name, description, empty, BOTH, sanctumEntrance, sanctum, description2, false);
+	Exit* sanctumTunnel = new Exit(name, description, empty, BOTH, sanctumEntrance, sanctum, W, E, description2, false);
 	elements.push_back(sanctumTunnel);
 
 	//Player creation
@@ -133,6 +133,7 @@ World::World()
 
 	//adding the exits to the rooms aswell
 	graveyardOutside->addElement(graveyardDoor);
+	cout << "type of first door = " << graveyardDoor->t << endl;
 
 	graveyardEntrance->addElement(graveyardDoor);
 	graveyardEntrance->addElement(graveyardPathway);
@@ -142,8 +143,6 @@ World::World()
 
 	sanctumEntrance->addElement(sanctumPathway);
 	sanctumEntrance->addElement(sanctumTunnel);
-
-	sanctum->addElement(vigilante);
 
 
 	totalCommands = 0;
@@ -161,6 +160,7 @@ void World::interpret(action a) {
 			return;
 		case INVENTORY:
 			player->inventory();
+			return;
 		case GO:
 			player->go(a);
 			return;

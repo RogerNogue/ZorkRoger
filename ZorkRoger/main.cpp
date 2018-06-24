@@ -7,13 +7,15 @@
 int main()
 {
 	World myWorld;
+	cout << "Welcome to ZorkRoger!" << endl;
 	//game loop
 	while (1) {
-		
+		cout << endl;
 		string inp;
 		getline(cin, inp); //get the input line
 
 		myWorld.update(inp);
 	}
+	return 0;
 }
 
