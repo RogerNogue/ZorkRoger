@@ -7,6 +7,7 @@ Player::Player(string namep, string descriptionp, vector<Entity*> containsp, Roo
 {
 	t = PLAYER;
 	key = false;
+	lighted = false;
 }
 
 
@@ -18,7 +19,7 @@ Player::~Player()
 void Player::look(action a) {
 	if (a.p1 == "") {
 		cout << "You look around" << endl;
-		location->printAllElements();
+		location->printAllElements(lighted);
 	}
 	else {
 		//look into something

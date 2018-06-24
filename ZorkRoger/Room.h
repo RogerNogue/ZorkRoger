@@ -10,7 +10,7 @@ public:
 	~Room();
 
 	void addElement(Entity* e);
-	void printAllElements();
+	void printAllElements(bool light);
 	Entity* printSpecificElement(string name);
 	Entity* grabItem(string n);
 	Room* move(direction dir, bool key);

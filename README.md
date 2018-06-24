@@ -12,3 +12,6 @@ player to see objects in the dark.
 - At some point i realised that in I would have put the classes Exit and Room together since it
 makes some sense to have a path to another room as an element of the room. I have not done it to
 maintain the initial structure.
+
+- the final item can be grabbed even if you don't see it. Like IRL, if you know something is there,
+it can be grabbed even if you don't see it.

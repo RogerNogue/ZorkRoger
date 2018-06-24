@@ -18,10 +18,24 @@ void Room::addElement(Entity* e) {
 	contains.push_back(e);
 }
 
-void Room::printAllElements() {
+void printItem(Entity* e) {
+	cout << "There is " << e->description << endl;
+}
+
+void Room::printAllElements(bool light) {
 	cout << description << endl;
 	for (int i = 0; i < contains.size(); i++) {
-		cout << "There is " << contains[i]->description << endl;
+		//case the item needs light
+		if (contains[i]->t == ITEM) {
+			Item* itemfound = dynamic_cast<Item*>(contains[i]);//supposed to work
+			if (itemfound->hardToSee) {
+				if (light) {
+					printItem(contains[i]);
+				}
+			}else {
+				printItem(contains[i]);
+			}
+		}else printItem(contains[i]);
 	}
 }
 

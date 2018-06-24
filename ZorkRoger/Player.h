@@ -8,7 +8,7 @@ public:
 	~Player();
 
 	bool key;
-
+	bool lighted;
 	void look(action a);
 	void inventory();
 	void go(action a);
