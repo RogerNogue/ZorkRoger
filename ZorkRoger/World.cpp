@@ -133,7 +133,6 @@ World::World()
 
 	//adding the exits to the rooms aswell
 	graveyardOutside->addElement(graveyardDoor);
-	cout << "type of first door = " << graveyardDoor->t << endl;
 
 	graveyardEntrance->addElement(graveyardDoor);
 	graveyardEntrance->addElement(graveyardPathway);

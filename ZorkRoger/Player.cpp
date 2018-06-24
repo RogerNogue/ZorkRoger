@@ -58,7 +58,16 @@ void Player::grab(action a) {
 	}
 }
 void Player::drop(action a) {
-
+	bool itemFound = false;
+	for (int i = 0; i < contains.size(); ++i) {
+		if (contains[i]->name == a.p1) {
+			location->addElement(contains[i]);
+			contains.erase(contains.begin() + i);
+			itemFound = true;
+			cout << "You droped " << a.p1 << endl;
+		}
+	}
+	if(!itemFound) cout << "You don't have that item " << endl;
 }
 void Player::use(action a) {
 
