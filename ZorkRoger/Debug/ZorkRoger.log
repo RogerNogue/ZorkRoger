@@ -1,12 +1,3 @@
-﻿  Room.cpp
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(28): warning C4018: '<': no coinciden signed/unsigned
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(52): warning C4018: '<': no coinciden signed/unsigned
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(56): warning C4018: '<': no coinciden signed/unsigned
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(86): warning C4018: '<': no coinciden signed/unsigned
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(111): warning C4018: '<': no coinciden signed/unsigned
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(141): warning C4018: '<': no coinciden signed/unsigned
-c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(165): warning C4018: '<': no coinciden signed/unsigned
-  World.cpp
+﻿  World.cpp
 c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\parser.h(10): warning C4091: 'static ': se ha omitido a la izquierda de 'Parser' cuando no hay ninguna variable declarada
-  Generando código...
   ZorkRoger.vcxproj -> C:\Users\Roger\Desktop\Roger\ProvaMaster\Zork\ZorkRoger\Debug\ZorkRoger.exe

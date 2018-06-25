@@ -1,0 +1,28 @@
+﻿  Creature.cpp
+  Entity.cpp
+  Exit.cpp
+  Item.cpp
+  main.cpp
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\parser.h(10): warning C4091: 'static ': se ha omitido a la izquierda de 'Parser' cuando no hay ninguna variable declarada
+  NPC.cpp
+  Parser.cpp
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\parser.h(10): warning C4091: 'static ': se ha omitido a la izquierda de 'Parser' cuando no hay ninguna variable declarada
+  Player.cpp
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\player.cpp(40): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\player.cpp(62): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\player.cpp(74): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\player.cpp(118): warning C4018: '<': no coinciden signed/unsigned
+  Room.cpp
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(28): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(52): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(56): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(86): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(111): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(141): warning C4018: '<': no coinciden signed/unsigned
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\room.cpp(165): warning C4018: '<': no coinciden signed/unsigned
+  World.cpp
+c:\users\roger\desktop\roger\provamaster\zork\zorkroger\zorkroger\parser.h(10): warning C4091: 'static ': se ha omitido a la izquierda de 'Parser' cuando no hay ninguna variable declarada
+  Generando código
+  All 351 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  ZorkRoger.vcxproj -> C:\Users\Roger\Desktop\Roger\ProvaMaster\Zork\ZorkRoger\Release\ZorkRoger.exe
